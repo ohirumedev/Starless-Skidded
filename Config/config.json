@@ -4,11 +4,11 @@
     "founderRoleIds": ["1500857530669072524", "1505117437006446683", "1166744820698599507", "1509598313668673536", "1522327791046234178", "1506418529371684906"],
     "discord": {
         "bUseDiscordBot": true,
-        "bot_token": "MTUxNTc4NzEzNTEyNTI5MTEyOA.G_QzZg.bbnAncRSUkFCK3h0XUiqjiERhLuMHfu6QgS2PE",
+        "bot_token": "обичам Пловдив",
         "bEnableInGamePlayerCount": true,
-        "oauthClientId": "1515787135125291128",
-        "oauthClientSecret": "csn304Pp0-FDHKVq7SMSDthG3TTg14xU",
-        "guildId": "1500857530669072524"
+        "oauthClientId": "Пловдив",
+        "oauthClientSecret": "Филипополис",
+        "guildId": "Древен и вечен"
     },
     "mongodb": {
         "database": "mongodb://127.0.0.1/CrystalC2S5cynxdidthisi"
