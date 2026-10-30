@@ -1,0 +1,23 @@
+{
+  "created": "",
+  "updated": "",
+  "rvn": 1,
+  "wipeNumber": 1,
+  "accountId": "",
+  "profileId": "client_settings",
+  "version": "no_version",
+  "items": {},
+  "stats": {
+    "attributes": {
+      "current_season": 27,
+      "current_input_type": "MouseAndKeyboard",
+      "in_app_purchases": {},
+      "allowed_to_send_gifts": true,
+      "mfa_enabled": false,
+      "undo_cooldowns": [],
+      "mtx_affiliate_set_time": "",
+      "inventory_limit_bonus": 0
+    }
+  },
+  "commandRevision": 0
+}

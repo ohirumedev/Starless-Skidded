@@ -1,0 +1,68 @@
+{
+    "contentType": "collection",
+    "contentId": "motd-default-collection",
+    "tcId": "634e8e85-e2fc-4c68-bb10-93604cf6605f",
+    "contentItems": [
+      {
+        "contentType": "content-item",
+        "contentId": "46874c56-0973-4cbe-ac98-b580c5b36df5",
+        "tcId": "61fb3dd8-f23d-45cc-9058-058ab223ba5c",
+        "contentFields": {
+          "body": {
+            "ar": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "en": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "de": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "es": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "es-419": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "fr": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "it": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "ja": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "ko": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "pl": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "pt-BR": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "ru": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS",
+            "tr": "Welcome to Project Crystal so much features and free rewards will be added soon! KEEP PLAYING TO GET FREE REWARDS"
+          },
+          "entryType": "Website",
+          "image": [
+            {
+              "width": 1920,
+              "height": 1080,
+              "url": "https://i.imgur.com/rEhZbsd.png"
+            }
+          ],
+          "tabTitleOverride": "Crystal",
+          "tileImage": [
+            {
+              "width": 1920,
+              "height": 1080,
+              "url": "https://i.imgur.com/rEhZbsd.png"
+            }
+          ],
+          "title": {
+            "ar": "مرحبًا بك في Crystal!",
+            "en": "Welcome to Crystal!",
+            "de": "Willkommen bei Crystal!",
+            "es": "¡Bienvenidos a Crystal!",
+            "es-419": "¡Bienvenidos a Crystal!",
+            "fr": "Bienvenue sur Crystal !",
+            "it": "Benvenuto in Crystal!",
+            "ja": "Crystalへようこそ！",
+            "ko": "Crystal에 오신 것을 환영합니다!",
+            "pl": "Witaj w Crystalze!",
+            "pt-BR": "Bem-vindo ao Crystal!",
+            "ru": "Добро пожаловать в Crystal!",
+            "tr": "Crystal'a Hoş Geldiniz!"
+          },
+          "videoAutoplay": false,
+          "videoLoop": false,
+          "videoMute": false,
+          "videoStreamingEnabled": false,
+          "websiteButtonText": "Crystal Discord",
+          "websiteURL": "https://discord.gg/Crystalmp"
+        },
+        "contentHash": "Crystalbackendcontenthashtylawin",
+        "contentSchemaName": "MotdWebsiteNewsWithVideo"
+        }
+    ]
+}

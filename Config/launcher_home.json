@@ -1,0 +1,36 @@
+{
+  "upcomingFeatures": [
+    {
+      "name": "3D Cosmetic Preview",
+      "description": "Rotate outfits on the Shop page.",
+      "status": "Soon"
+    },
+    {
+      "name": "Daily Login Reward",
+      "description": "Bonus V-Bucks for opening Crystal each day.",
+      "status": "Soon"
+    },
+    {
+      "name": "Gift Cosmetics",
+      "description": "Send shop items to friends from the launcher.",
+      "status": "Soon"
+    }
+  ],
+  "liveFeatures": [
+    {
+      "name": "Buy From Launcher",
+      "description": "Purchase cosmetics with V-Bucks on the Item Shop tab.",
+      "status": "Live"
+    },
+    {
+      "name": "Global Chat",
+      "description": "Talk with everyone on the backend.",
+      "status": "Live"
+    },
+    {
+      "name": "Launcher Auto-Update",
+      "description": "Downloads setup.exe from GitHub when a new release is posted.",
+      "status": "Live"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crystal — OG Fortnite Private Server</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg0:#06080f;--bg1:#0c0f1a;--bg2:#131826;
+  --blue:#3b82f6;--blue-lt:#60a5fa;--gold:#f59e0b;
+  --t1:#f8fafc;--t2:#94a3b8;--t3:#475569;
+  --border:rgba(255,255,255,0.07);
+  --font-d:'Space Grotesk',sans-serif;--font-b:'Inter',sans-serif;
+  --ease:0.25s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--bg0);color:var(--t1);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none}
+img{max-width:100%}
+
+/* ── Navbar ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(6,8,15,0.85);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-brand-logo{width:32px;height:32px}
+.nav-brand-name{font-family:var(--font-d);font-size:1.1rem;font-weight:700;letter-spacing:0.04em}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{padding:7px 14px;border-radius:7px;font-size:0.88rem;font-weight:500;color:var(--t2);transition:all var(--ease)}
+.nav-link:hover{color:var(--t1);background:rgba(255,255,255,0.06)}
+.nav-link.active{color:var(--blue-lt)}
+.nav-cta{padding:8px 20px;background:var(--blue);color:white;border-radius:8px;font-size:0.88rem;font-weight:600;transition:all var(--ease)}
+.nav-cta:hover{background:var(--blue-lt);transform:translateY(-1px)}
+
+/* ── Hero ── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(29,78,216,.2) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 80% 70%,rgba(59,130,246,.1) 0%,transparent 60%);z-index:0}
+.hero-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 80%);z-index:0}
+.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 40%,rgba(6,8,15,.7) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:0 24px;padding-top:100px}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:999px;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.3);color:var(--blue-lt);font-size:0.75rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:24px}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue-lt);animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{font-family:var(--font-d);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:22px}
+.hero-title span{background:linear-gradient(135deg,var(--blue-lt),#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{color:var(--t2);font-size:1.1rem;max-width:560px;line-height:1.65;margin-bottom:36px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--blue);color:white;border-radius:10px;font-size:.95rem;font-weight:700;transition:all var(--ease);box-shadow:0 4px 20px rgba(59,130,246,.4)}
+.btn-primary:hover{background:var(--blue-lt);transform:translateY(-2px);box-shadow:0 8px 32px rgba(59,130,246,.55)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:rgba(255,255,255,.06);color:var(--t1);border-radius:10px;font-size:.95rem;font-weight:600;border:1px solid rgba(255,255,255,.12);transition:all var(--ease)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
+
+/* ── Stats ── */
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.hero-stat__val{font-family:var(--font-d);font-size:1.6rem;font-weight:700;color:var(--t1)}
+.hero-stat__label{font-size:.78rem;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+
+/* ── Section ── */
+.section{max-width:1140px;margin:0 auto;padding:80px 24px}
+.section-tag{display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);color:var(--blue-lt);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.section-title{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;letter-spacing:-.02em;margin-bottom:12px;line-height:1.15}
+.section-sub{color:var(--t2);font-size:1rem;max-width:500px;line-height:1.65}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);margin:0}
+
+/* ── Feature cards ── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-top:48px}
+.feature-card{padding:24px;background:rgba(12,15,26,.9);border:1px solid var(--border);border-radius:14px;transition:all var(--ease)}
+.feature-card:hover{border-color:rgba(59,130,246,.3);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.feature-card__icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);margin-bottom:16px}
+.feature-card__title{font-family:var(--font-d);font-size:1rem;font-weight:600;margin-bottom:8px}
+.feature-card__desc{color:var(--t2);font-size:.875rem;line-height:1.6}
+
+/* ── Video section ── */
+.video-section{padding:80px 0;background:rgba(12,15,26,.6)}
+.video-wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.video-container{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 64px rgba(0,0,0,.7);aspect-ratio:16/9;background:var(--bg1);margin-top:40px}
+.video-container video{width:100%;height:100%;object-fit:cover}
+.video-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(6,8,15,.9) 100%);pointer-events:none}
+
+/* ── Season strip ── */
+.season-strip{background:linear-gradient(90deg,rgba(29,78,216,.2),rgba(59,130,246,.15),rgba(29,78,216,.2));border-top:1px solid rgba(59,130,246,.15);border-bottom:1px solid rgba(59,130,246,.15);padding:24px 0}
+.season-strip-inner{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.season-info h3{font-family:var(--font-d);font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.season-info p{color:var(--t2);font-size:.875rem}
+
+/* ── Footer ── */
+.footer{border-top:1px solid var(--border);padding:40px 24px}
+.footer-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-brand{display:flex;align-items:center;gap:9px}
+.footer-brand-name{font-family:var(--font-d);font-weight:700;font-size:.95rem}
+.footer-links{display:flex;gap:20px}
+.footer-link{color:var(--t3);font-size:.82rem;transition:color var(--ease)}
+.footer-link:hover{color:var(--t1)}
+.footer-copy{color:var(--t3);font-size:.78rem}
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/home" class="nav-brand">
+      <img src="/images/crystal-logo.png" class="nav-brand-logo" alt="Crystal" onerror="this.style.display='none'" />
+      <span class="nav-brand-name">Crystal</span>
+    </a>
+    <div class="nav-links">
+      <a href="/home" class="nav-link active">Home</a>
+      <a href="/itemshop" class="nav-link">Item Shop</a>
+      <a href="/leaderboard" class="nav-link">Leaderboard</a>
+    </div>
+    <a href="/login" class="nav-cta">Login with Discord</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🎮 Chapter 2 · Season 5 — Now Live</div>
+    <h1 class="hero-title">Play <span>OG Fortnite</span><br/>Your Way.</h1>
+    <p class="hero-sub">Crystal is a private Fortnite server running Chapter 2 Season 5. Join hundreds of players, grind Arena Points, and relive the golden era of Fortnite.</p>
+    <div class="hero-actions">
+      <a href="#download" class="btn-primary">⬇ Download Launcher</a>
+      <a href="/itemshop" class="btn-secondary">🛍 Item Shop</a>
+    </div>
+    <div class="hero-stats" id="hero-stats">
+      <div>
+        <div class="hero-stat__val" id="stat-players">—</div>
+        <div class="hero-stat__label">Players Online</div>
+      </div>
+      <div>
+        <div class="hero-stat__val" id="stat-status">Checking...</div>
+        <div class="hero-stat__label">Server Status</div>
+      </div>
+      <div>
+        <div class="hero-stat__val">C2 S5</div>
+        <div class="hero-stat__label">Current Season</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Season strip -->
+<div class="season-strip">
+  <div class="season-strip-inner">
+    <div class="season-info">
+      <h3>Chapter 2 · Season 5 — Zero Point</h3>
+      <p>The Zero Point is exposed. Hunters from across realities arrive on the Island.</p>
+    </div>
+    <a href="/itemshop" class="btn-primary" style="white-space:nowrap">View Item Shop →</a>
+  </div>
+</div>
+
+<!-- Features -->
+<section class="section">
+  <div class="section-tag">Why Crystal</div>
+  <h2 class="section-title">Everything you loved<br/>about OG Fortnite.</h2>
+  <p class="section-sub">No pay-to-win. No sweats forcing crossplay. Just pure nostalgia with a community that cares.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-card__icon">🏆</div>
+      <div class="feature-card__title">Arena Mode</div>
+      <div class="feature-card__desc">Compete in ranked Arena with real Hype points. Climb divisions and prove you're the best.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon">🛍</div>
+      <div class="feature-card__title">Daily Item Shop</div>
+      <div class="feature-card__desc">Rotating daily shop with classic OG cosmetics. Earn V-Bucks and spend them on skins you actually want.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon">💎</div>
+      <div class="feature-card__title">Free V-Bucks</div>
+      <div class="feature-card__desc">Claim 500 free V-Bucks every hour just by having the launcher open. No grind required.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon">🌍</div>
+      <div class="feature-card__title">EU & NAE Servers</div>
+      <div class="feature-card__desc">Dedicated game servers in Europe and North America East. Low ping, smooth gameplay.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon">🔒</div>
+      <div class="feature-card__title">Anti-Cheat</div>
+      <div class="feature-card__desc">Custom anticheat system blocks cheaters before they join. Fair play guaranteed.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon">⚡</div>
+      <div class="feature-card__title">Custom Launcher</div>
+      <div class="feature-card__desc">Beautiful Crystal launcher with friends list, leaderboard, item shop, and one-click game launch.</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Video -->
+<div class="video-section" id="download">
+  <div class="video-wrap">
+    <div class="section-tag">Trailer</div>
+    <h2 class="section-title" style="max-width:1140px">See Crystal in action.</h2>
+    <div class="video-container">
+      <video autoplay muted loop playsinline poster="">
+        <source src="/images/Crystal - Chapter 2 Season 5 Trailer.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    <div style="margin-top:36px;display:flex;gap:12px;flex-wrap:wrap">
+      <a href="#" class="btn-primary" id="download-btn">⬇ Download Crystal Launcher</a>
+      <a href="https://discord.gg/" target="_blank" class="btn-secondary">Join Discord →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/images/crystal-logo.png" style="width:22px;height:22px" alt="" onerror="this.style.display='none'" />
+      <span class="footer-brand-name">Crystal</span>
+    </div>
+    <div class="footer-links">
+      <a href="/home" class="footer-link">Home</a>
+      <a href="/itemshop" class="footer-link">Item Shop</a>
+      <a href="/leaderboard" class="footer-link">Leaderboard</a>
+    </div>
+    <span class="footer-copy">© 2025 Crystal. Not affiliated with Epic Games.</span>
+  </div>
+</footer>
+
+<script>
+  // Load server status
+  fetch('/api/website/status').then(r=>r.json()).then(data=>{
+    document.getElementById('stat-players').textContent = (data.playersOnline ?? data.playerCount ?? 0).toLocaleString();
+    document.getElementById('stat-status').textContent = data.online !== false ? 'Online ✓' : 'Offline';
+    document.getElementById('stat-status').style.color = data.online !== false ? '#6ee7b7' : '#fca5a5';
+  }).catch(()=>{
+    document.getElementById('stat-status').textContent = 'Online ✓';
+  });
+</script>
+</body>
+</html>

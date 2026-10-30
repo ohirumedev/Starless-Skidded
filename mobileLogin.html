@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawin Server Login</title>
+    <style>
+        
+{ margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: sans-serif; background: #111; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; }.card { background: #1a1a1a; padding: 2rem; border-radius: 8px; width: 100%; max-width: 360px; }
+      h1 { text-align: center; margin-bottom: 1.5rem; font-size: 1.4rem; }
+      input { width: 100%; padding: 0.7rem; margin-bottom: 1rem; background: #2a2a2a; border: 1px solid #333; border-radius: 4px; color: #fff; font-size: 1rem; }
+      button { width: 100%; padding: 0.75rem; background: #0078f2; border: none; border-radius: 4px; color: #fff; font-size: 1rem; cursor: pointer; }button:hover { background: #005fcc; }</style></head><body><div class="card"><h1>Login</h1><input type="text" id="username" placeholder="Username" /><input type="password" id="password" placeholder="Password" /><button onclick="login()">Login</button></div><script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const code = encodeURIComponent(username) + ":" + encodeURIComponent(password);
+      window.location.href = "com.epicgames.fortnite://authorize/?code=" + code;}</script></body>
+</html>

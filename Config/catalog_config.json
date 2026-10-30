@@ -1,0 +1,107 @@
+{
+  "//": "BR Item Shop — Bundles (top) then Daily cosmetics (bottom)",
+  "bundle1": {
+    "itemGrants": [
+      "AthenaCharacter:CID_679_Athena_Commando_M_ModernMilitaryEclipse",
+      "AthenaPickaxe:Pickaxe_ID_335_TacticalBearMale1H",
+      "AthenaBackpack:BID_614_Myth"
+    ],
+    "price": 2736
+  },
+  "bundle2": {
+    "itemGrants": [
+      "AthenaCharacter:CID_488_Athena_Commando_M_RustRemix",
+      "AthenaPickaxe:Pickaxe_ID_329_GingerbreadCookie1H",
+      "AthenaBackpack:BID_437_TNTina"
+    ],
+    "price": 2736
+  },
+  "bundle3": {
+    "itemGrants": [
+      "AthenaCharacter:CID_923_Athena_Commando_M_ParcelGold",
+      "AthenaPickaxe:HalloweenScythe",
+      "AthenaBackpack:BID_179_DemonMale"
+    ],
+    "price": 3096
+  },
+  "bundle4": {
+    "itemGrants": [
+      "AthenaCharacter:CID_363_Athena_Commando_M_SciOps",
+      "AthenaPickaxe:Pickaxe_ID_034_RockerPunk",
+      "AthenaBackpack:BID_482_LongShorts"
+    ],
+    "price": 2304
+  },
+  "daily1": {
+    "itemGrants": [
+      "AthenaCharacter:CID_943_Athena_Commando_F_Football20_B_GR3WN"
+    ],
+    "price": 1500
+  },
+  "daily2": {
+    "itemGrants": [
+      "AthenaCharacter:CID_346_Athena_Commando_M_DragonNinja"
+    ],
+    "price": 2000
+  },
+  "daily3": {
+    "itemGrants": [
+      "AthenaDance:EID_Moonwalking"
+    ],
+    "price": 500
+  },
+  "daily4": {
+    "itemGrants": [
+      "AthenaBackpack:BID_352_CupidFemale"
+    ],
+    "price": 1500
+  },
+  "daily5": {
+    "itemGrants": [
+      "AthenaGlider:Glider_ID_134_DarkVikingFire"
+    ],
+    "price": 2000
+  },
+  "daily6": {
+    "itemGrants": [
+      "AthenaPickaxe:Pickaxe_ID_257_FrostMystery1H"
+    ],
+    "price": 800
+  },
+  "daily7": {
+    "itemGrants": [
+      "AthenaWrap:Wrap_011_HotCold"
+    ],
+    "price": 300
+  },
+  "daily8": {
+    "itemGrants": [
+      "AthenaGlider:Glider_ID_055_StreetRacerBlack"
+    ],
+    "price": 500
+  },
+  "daily9": {
+    "itemGrants": [
+      "AthenaCharacter:CID_535_Athena_Commando_M_Traveler"
+    ],
+    "price": 1200
+  },
+  "daily10": {
+    "itemGrants": [
+      "AthenaBackpack:BID_054_JailbirdFemale"
+    ],
+    "price": 1500
+  },
+  "daily11": {
+    "itemGrants": [
+      "AthenaCharacter:CID_067_Athena_Commando_F_SkiGirl_CHN"
+    ],
+    "price": 1500
+  },
+  "daily12": {
+    "itemGrants": [
+      "AthenaCharacter:CID_526_Athena_Commando_F_DesertOpsSwamp"
+    ],
+    "price": 800
+  }
+}

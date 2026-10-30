@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Item Shop — Crystal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg0:#06080f;--bg1:#0c0f1a;--bg2:#131826;
+  --blue:#3b82f6;--blue-lt:#60a5fa;--gold:#f59e0b;--gold-lt:#fbbf24;
+  --t1:#f8fafc;--t2:#94a3b8;--t3:#475569;
+  --border:rgba(255,255,255,0.07);
+  --font-d:'Space Grotesk',sans-serif;--font-b:'Inter',sans-serif;
+  --ease:0.22s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--bg0);color:var(--t1);min-height:100vh;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none}
+
+/* ── Navbar ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(6,8,15,0.88);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-brand-logo{width:30px;height:30px}
+.nav-brand-name{font-family:var(--font-d);font-size:1.05rem;font-weight:700;letter-spacing:0.04em}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{padding:7px 14px;border-radius:7px;font-size:.87rem;font-weight:500;color:var(--t2);transition:all var(--ease)}
+.nav-link:hover{color:var(--t1);background:rgba(255,255,255,.06)}
+.nav-link.active{color:var(--blue-lt)}
+.nav-cta{padding:8px 18px;background:var(--blue);color:white;border-radius:8px;font-size:.87rem;font-weight:600;transition:all var(--ease)}
+.nav-cta:hover{background:var(--blue-lt)}
+
+/* ── Page ── */
+.page{max-width:1200px;margin:0 auto;padding:80px 24px 48px}
+
+/* ── Header ── */
+.shop-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;flex-wrap:wrap;gap:16px}
+.shop-title{font-family:var(--font-d);font-size:1.9rem;font-weight:700;letter-spacing:-.02em}
+.shop-title span{color:var(--blue-lt)}
+.shop-subtitle{color:var(--t2);font-size:.88rem;margin-top:4px}
+.shop-meta{display:flex;align-items:center;gap:10px}
+.vbucks-badge{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:10px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);font-size:.88rem;font-weight:600;color:var(--gold-lt)}
+.vbucks-badge img{width:20px;height:20px;object-fit:contain}
+.timer-badge{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid var(--border);font-size:.82rem;color:var(--t2)}
+.timer-badge .dot{width:6px;height:6px;border-radius:50%;background:#6ee7b7;animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── Filters ── */
+.filters{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap}
+.filter-btn{padding:7px 16px;border-radius:999px;font-size:.8rem;font-weight:600;color:var(--t2);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:all var(--ease)}
+.filter-btn:hover{color:var(--t1);border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.08)}
+.filter-btn.active{color:var(--blue-lt);border-color:rgba(59,130,246,.4);background:rgba(59,130,246,.1)}
+
+/* ── Grid ── */
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+
+/* ── Card ── */
+.shop-card{
+  background:rgba(13,17,26,.95);border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;overflow:hidden;cursor:pointer;
+  transition:transform var(--ease),border-color var(--ease),box-shadow var(--ease);
+  position:relative;
+}
+.shop-card:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(59,130,246,.3);box-shadow:0 16px 40px rgba(0,0,0,.6)}
+.shop-card__img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden}
+.shop-card__img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .4s ease}
+.shop-card:hover .shop-card__img{transform:scale(1.06)}
+.shop-card__img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.shop-card__rarity-bar{position:absolute;bottom:0;left:0;right:0;height:3px}
+.shop-card__badge{position:absolute;top:8px;left:8px;padding:2px 8px;border-radius:999px;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.badge-new{background:rgba(59,130,246,.85);color:white}
+.shop-card__body{padding:10px 12px 13px}
+.shop-card__name{font-size:.82rem;font-weight:600;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:4px}
+.shop-card__rarity-label{font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.shop-card__price{display:flex;align-items:center;gap:6px;font-family:var(--font-d);font-size:.88rem;font-weight:700;color:var(--t1)}
+.shop-card__vbuck{width:16px;height:16px;object-fit:contain}
+
+/* Rarity colors */
+.r-legendary{color:#fbbf24}.r-epic{color:#c4b5fd}.r-rare{color:#7dd3fc}.r-uncommon{color:#6ee7b7}.r-common{color:#94a3b8}
+.bar-legendary{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.bar-epic{background:linear-gradient(90deg,#7c3aed,#c4b5fd)}
+.bar-rare{background:linear-gradient(90deg,#1d4ed8,#7dd3fc)}
+.bar-uncommon{background:linear-gradient(90deg,#059669,#6ee7b7)}
+.bar-common{background:rgba(148,163,184,.4)}
+
+/* ── Loading ── */
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px;gap:16px;color:var(--t2)}
+.spinner{width:36px;height:36px;border-radius:50%;border:2.5px solid rgba(255,255,255,.08);border-top-color:var(--blue-lt);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── Empty ── */
+.empty{text-align:center;padding:64px;color:var(--t3)}
+.empty-icon{font-size:3rem;margin-bottom:16px}
+
+/* ── Footer ── */
+.footer{border-top:1px solid var(--border);padding:32px 24px;margin-top:64px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-brand{display:flex;align-items:center;gap:8px;font-family:var(--font-d);font-weight:700}
+.footer-copy{color:var(--t3);font-size:.78rem}
+.footer-links{display:flex;gap:16px}
+.footer-link{color:var(--t3);font-size:.8rem;transition:color var(--ease)}
+.footer-link:hover{color:var(--t1)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/home" class="nav-brand">
+      <img src="/images/crystal-logo.png" class="nav-brand-logo" alt="" onerror="this.style.display='none'" />
+      <span class="nav-brand-name">Crystal</span>
+    </a>
+    <div class="nav-links">
+      <a href="/home" class="nav-link">Home</a>
+      <a href="/itemshop" class="nav-link active">Item Shop</a>
+      <a href="/leaderboard" class="nav-link">Leaderboard</a>
+    </div>
+    <a href="/login" class="nav-cta">Login</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="shop-header">
+    <div>
+      <h1 class="shop-title">Item <span>Shop</span></h1>
+      <p class="shop-subtitle">Daily rotating cosmetics — updated every 24 hours</p>
+    </div>
+    <div class="shop-meta">
+      <div class="timer-badge"><span class="dot"></span> Resets daily at midnight UTC</div>
+    </div>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="skin">Outfits</button>
+    <button class="filter-btn" data-filter="pickaxe">Pickaxes</button>
+    <button class="filter-btn" data-filter="glider">Gliders</button>
+    <button class="filter-btn" data-filter="emote">Emotes</button>
+    <button class="filter-btn" data-filter="wrap">Wraps</button>
+    <button class="filter-btn" data-filter="other">Other</button>
+  </div>
+
+  <div id="shop-container">
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <span>Loading today's shop…</span>
+    </div>
+    <div class="shop-grid" id="shop-grid" style="display:none"></div>
+    <div class="empty" id="empty" style="display:none">
+      <div class="empty-icon">🛍</div>
+      <p>No items found in this category.</p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/images/crystal-logo.png" style="width:20px;height:20px" alt="" onerror="this.style.display='none'" />
+      Crystal
+    </div>
+    <div class="footer-links">
+      <a href="/home" class="footer-link">Home</a>
+      <a href="/itemshop" class="footer-link">Item Shop</a>
+      <a href="/leaderboard" class="footer-link">Leaderboard</a>
+    </div>
+    <span class="footer-copy">© 2025 Crystal. Not affiliated with Epic Games.</span>
+  </div>
+</footer>
+
+<script>
+const VBUCKS_ICON = 'https://fortnite-api.com/images/vbucks.png';
+let allItems = [];
+let activeFilter = 'all';
+
+const RARITY_GRADIENT = {
+  legendary: 'linear-gradient(160deg,rgba(245,158,11,.35),rgba(13,17,26,.98))',
+  epic:      'linear-gradient(160deg,rgba(109,40,217,.4),rgba(13,17,26,.98))',
+  rare:      'linear-gradient(160deg,rgba(29,78,216,.4),rgba(13,17,26,.98))',
+  uncommon:  'linear-gradient(160deg,rgba(22,163,74,.35),rgba(13,17,26,.98))',
+  common:    'linear-gradient(160deg,rgba(100,116,139,.3),rgba(13,17,26,.98))',
+};
+
+function renderCard(item) {
+  const rarity = item.rarity || 'common';
+  const gradient = RARITY_GRADIENT[rarity] || RARITY_GRADIENT.common;
+  const price = item.price?.toLocaleString() || '—';
+  const newBadge = item.isNew ? '<span class="shop-card__badge badge-new">New</span>' : '';
+
+  return `
+    <div class="shop-card" data-type="${item.type || 'other'}">
+      <div class="shop-card__img-wrap" style="background:${gradient}">
+        ${newBadge}
+        ${item.iconUrl
+          ? `<img class="shop-card__img" src="${item.iconUrl}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=shop-card__img-placeholder>🎮</div>'" />`
+          : `<div class="shop-card__img-placeholder">🎮</div>`
+        }
+        <div class="shop-card__rarity-bar bar-${rarity}"></div>
+      </div>
+      <div class="shop-card__body">
+        <div class="shop-card__name" title="${item.name}">${item.name}</div>
+        <div class="shop-card__rarity-label r-${rarity}">${rarity}</div>
+        <div class="shop-card__price">
+          <img class="shop-card__vbuck" src="${VBUCKS_ICON}" alt="" onerror="this.style.display='none'" />
+          ${price}
+        </div>
+      </div>
+    </div>`;
+}
+
+function applyFilter() {
+  const filtered = activeFilter === 'all'
+    ? allItems
+    : allItems.filter(i => (i.type || 'other') === activeFilter);
+
+  const grid = document.getElementById('shop-grid');
+  const empty = document.getElementById('empty');
+
+  if (filtered.length === 0) {
+    grid.style.display = 'none';
+    empty.style.display = 'block';
+  } else {
+    grid.style.display = 'grid';
+    empty.style.display = 'none';
+    grid.innerHTML = filtered.map(renderCard).join('');
+  }
+}
+
+// Filter buttons
+document.getElementById('filters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.filter;
+  applyFilter();
+});
+
+// Load shop
+async function loadShop() {
+  try {
+    const res = await fetch('/api/website/itemshop');
+    const data = await res.json();
+    allItems = data.items || [];
+  } catch {
+    allItems = [];
+  }
+
+  document.getElementById('loading').style.display = 'none';
+  applyFilter();
+}
+
+loadShop();
+</script>
+</body>
+</html>

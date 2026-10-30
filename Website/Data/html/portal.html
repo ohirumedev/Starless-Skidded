@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phoenix — Account Portal</title>
+  <link rel="stylesheet" href="/css/portal.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <main class="shell">
+    <header class="brand">
+      <div class="logo">P</div>
+      <div>
+        <h1>Phoenix Account</h1>
+        <p>Sign in or create your private server account</p>
+      </div>
+    </header>
+
+    <section id="auth-panel" class="card">
+      <div class="tabs">
+        <button type="button" class="tab active" data-tab="login">Sign in</button>
+        <button type="button" class="tab" data-tab="register">Register</button>
+      </div>
+
+      <p id="message" class="message hidden"></p>
+
+      <div id="login-tab" class="tab-panel active">
+        <button type="button" id="btn-google-login" class="btn btn-google">
+          <span class="icon">G</span> Continue with Google
+        </button>
+        <button type="button" id="btn-discord-login" class="btn btn-discord">
+          Continue with Discord
+        </button>
+
+        <div class="divider"><span>or email</span></div>
+
+        <form id="login-form">
+          <label>Email</label>
+          <input type="email" id="login-email" required autocomplete="email" />
+          <label>Password</label>
+          <input type="password" id="login-password" required autocomplete="current-password" />
+          <p class="hint">Use the email and password from Discord <code>/create</code> or registration.</p>
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+      </div>
+
+      <div id="register-tab" class="tab-panel">
+        <button type="button" id="btn-google-register" class="btn btn-google">
+          <span class="icon">G</span> Register with Google
+        </button>
+        <button type="button" id="btn-discord-register" class="btn btn-discord">
+          Register with Discord
+        </button>
+
+        <div class="divider"><span>or email</span></div>
+
+        <form id="register-form">
+          <label>Username</label>
+          <input type="text" id="reg-username" required minlength="3" maxlength="24" />
+          <label>Email</label>
+          <input type="email" id="reg-email" required autocomplete="email" />
+          <label>Password</label>
+          <input type="password" id="reg-password" required minlength="4" autocomplete="new-password" />
+          <label>Discord User ID <span class="optional">(optional if you used /create)</span></label>
+          <input type="text" id="reg-discord" placeholder="17–20 digit ID" pattern="\d{17,20}" />
+          <button type="submit" class="btn btn-primary">Create account</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="dashboard-panel" class="card hidden">
+      <h2>Welcome, <span id="dash-username"></span></h2>
+      <div class="profile-grid">
+        <div><span class="label">Email</span><span id="dash-email"></span></div>
+        <div><span class="label">Account ID</span><span id="dash-account" class="mono"></span></div>
+      </div>
+      <p class="hint">Open the Phoenix launcher and sign in with the same email and password, or use Google / Discord.</p>
+      <button type="button" id="btn-signout" class="btn btn-ghost">Sign out</button>
+    </section>
+
+    <section id="google-complete-panel" class="card hidden">
+      <h2>Finish Google signup</h2>
+      <p class="hint">Choose a username for <strong id="google-email-label"></strong></p>
+      <form id="google-complete-form">
+        <label>Username</label>
+        <input type="text" id="google-username" required minlength="3" maxlength="24" />
+        <button type="submit" class="btn btn-primary">Create account</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <a href="/leaderboard">Leaderboard</a>
+    </footer>
+  </main>
+  <script src="/js/portal.js"></script>
+</body>
+</html>

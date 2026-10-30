@@ -1,0 +1,37 @@
+{
+  "events": [
+    {
+      "id": "arena-s24",
+      "name": "Arena Season 24",
+      "description": "Compete for hype points and climb the leaderboard.",
+      "type": "arena",
+      "status": "live",
+      "startDate": "2026-06-01T00:00:00.000Z",
+      "endDate": "2026-07-31T23:59:59.000Z",
+      "rewards": ["V-Bucks", "Exclusive cosmetics"],
+      "playlist": "playlist_showdownalt_solo"
+    },
+    {
+      "id": "ltm-playground",
+      "name": "Playground LTM",
+      "description": "Practice builds and explore the map with friends.",
+      "type": "ltm",
+      "status": "live",
+      "startDate": "2026-06-10T00:00:00.000Z",
+      "endDate": null,
+      "rewards": [],
+      "playlist": "playlist_playgroundv2"
+    },
+    {
+      "id": "solo-cup",
+      "name": "Solo Victory Cup",
+      "description": "Limited-time tournament — top players earn bonus V-Bucks.",
+      "type": "tournament",
+      "status": "upcoming",
+      "startDate": "2026-07-01T18:00:00.000Z",
+      "endDate": "2026-07-01T22:00:00.000Z",
+      "rewards": ["500 V-Bucks", "2000 V-Bucks", "5000 V-Bucks"],
+      "playlist": "playlist_defaultsolo"
+    }
+  ]
+}

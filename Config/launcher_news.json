@@ -1,0 +1,34 @@
+{
+  "articles": [
+    {
+      "id": "welcome",
+      "title": "Welcome to Crystal",
+      "summary": "Your gateway to OG Fortnite is live. Jump in and explore the island!",
+      "body": "Crystal Launcher is now connected to the backend. Browse the shop, check the leaderboard, and join our Discord at discord.gg/crystalmp.",
+      "tag": "Announcement",
+      "imageUrl": "",
+      "publishedAt": "2026-06-01T00:00:00.000Z",
+      "pinned": true
+    },
+    {
+      "id": "season-14.40",
+      "title": "Chapter 2 Season 4 Now Live",
+      "summary": "Build 15.30 is supported. Add your game folder from Home.",
+      "body": "Chapter 2 Season 4 is here on build 18.40. Use the Add Build card on Home to select your folder, then hit Play.",
+      "tag": "Patch Notes",
+      "imageUrl": "",
+      "publishedAt": "2026-06-15T00:00:00.000Z",
+      "pinned": false
+    },
+    {
+      "id": "shop-rotation",
+      "title": "Daily Item Shop Rotation",
+      "summary": "The item shop refreshes daily at 00:00 UTC. Check the Shop tab for new cosmetics.",
+      "body": "Purchase cosmetics directly from the launcher using your V-Bucks balance. Enable notifications to get alerted when the shop rotates.",
+      "tag": "Shop",
+      "imageUrl": "",
+      "publishedAt": "2026-06-18T00:00:00.000Z",
+      "pinned": false
+    }
+  ]
+}
