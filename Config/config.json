@@ -4,7 +4,7 @@
     "founderRoleIds": ["1500857530669072524", "1505117437006446683", "1166744820698599507", "1509598313668673536", "1522327791046234178", "1506418529371684906"],
     "discord": {
         "bUseDiscordBot": true,
-        "bot_token": "обичам Пловдив",
+        "skid_token": "обичам Пловдив",
         "bEnableInGamePlayerCount": true,
         "oauthClientId": "Пловдив",
         "oauthClientSecret": "Филипополис",
